@@ -1,8 +1,7 @@
 const read = require('node-readability'), 
   striptags = require('striptags'), 
   puppeteer = require('puppeteer'), 
-  xml_entities = require('html-entities').XmlEntities, 
-  html_entities = require('html-entities').AllHtmlEntities;
+  entities = require('html-entities');
 
 (async() => {
   console.log(process.argv[2]);
@@ -12,7 +11,7 @@ const read = require('node-readability'),
 
   await page.goto(process.argv[2], {waitUntil: 'networkidle0'});
   const html = await page.content();
-  // todo: use promise to close browser in background while doing html processing but await conclusion of browser close
+  // todo: use async.parallel to close browser in background while doing html processing but await conclusion of browser close
   await browser.close();
 
   read(html, function(err, article, meta) {
@@ -26,11 +25,11 @@ const read = require('node-readability'),
     const textContentWithoutTags = striptags(htmlContent);
     //console.log("text w/o tags length: " + textContentWithoutTags.length);
 
-    const xentities = new xml_entities();
+    const xentities = new entities.XmlEntities();
     const textContentWithoutXmlEntities = xentities.decode(textContentWithoutTags);
     //console.log("text w/o xml entities length: " + textContentWithoutXmlEntities.length);
 
-    const hentities = new html_entities();
+    const hentities = new entities.AllHtmlEntities();
     const textContentWithoutHtmlEntities = hentities.decode(textContentWithoutXmlEntities);
     //console.log("text w/o html entities length: " + textContentWithoutHtmlEntities.length);
 

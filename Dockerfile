@@ -1,4 +1,4 @@
-FROM node:11.10.0-stretch
+FROM node:11.10.0-stretch-slim
 
 #TODO: update to incorporate https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md
 
