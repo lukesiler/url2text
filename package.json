@@ -1,0 +1,25 @@
+{
+  "name": "url2text",
+  "version": "0.1.0",
+  "description": "Extract Text from an URL using open source tools",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukesiler/url2text.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/lukesiler/url2text/issues"
+  },
+  "homepage": "https://github.com/lukesiler/url2text#readme",
+  "dependencies": {
+    "html-entities": "^1.2.1",
+    "node-readability": "^3.0.0",
+    "puppeteer": "^1.12.2",
+    "striptags": "^3.1.1"
+  }
+}
