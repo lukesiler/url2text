@@ -6,7 +6,7 @@ SEMVER=$(yq r data.yaml data.semver)
 wget https://raw.githubusercontent.com/jfrazelle/dotfiles/master/etc/docker/seccomp/chrome.json -O ./chrome.json
 
 export SCRAPE_URL=https://en.wikipedia.org/wiki/General_Data_Protection_Regulation
-#docker run --rm -e "SCRAPE_URL=${SCRAPE_URL}" --security-opt seccomp=chrome.json ${IMAGE_NAME}:v${SEMVER}
+docker run --rm -e "SCRAPE_URL=${SCRAPE_URL}" --security-opt seccomp=chrome.json ${IMAGE_NAME}:v${SEMVER}
 
 node server.js 3000&
 NODE_PID=$!
