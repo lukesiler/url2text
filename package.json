@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/lukesiler/url2text#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "html-entities": "^1.2.1",
     "node-readability": "^3.0.0",
     "puppeteer": "^1.12.2",
